@@ -1,0 +1,558 @@
+Token gained.
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>comp24.sci2u.dk</title>
+
+        <!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+	
+        <!-- Bootstrap Core CSS -->
+        <link href="/static//book/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        
+            <!-- Custom CSS -->
+<style>
+    .landing-padding {
+        padding: 8rem 0 0;
+    }
+
+    .hero-padding {
+        padding: 8rem 0;
+    }
+
+    .book-padding {
+        padding: 0 7rem 0 4rem;
+    }
+
+    .navbar-padding {
+        padding-top: 56px;
+    }
+
+    .spy-padding {
+        padding-top: 68px;
+    }
+
+    .move-up {
+      top: 0;
+      -webkit-transition: top .25s ease;
+      -moz-transition: top .25s ease;
+      -ms-transition: top .25s ease;
+      -o-transition: top .25s ease;
+      transition: top .25s ease;
+    }
+
+    .move-up:hover {
+        top: -10px;
+    }
+
+    #sidebar {
+        position: fixed;
+        height: calc(100% - 56px);
+        overflow-y: auto;
+        background-color: #F7F7F7;
+        border-right: 1px solid #eee;
+        display: block;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+    #sidebar-button {
+        bottom: 15px;
+        right: 15px;
+        display: none;
+    }
+
+    @media (max-width: 767.98px) {
+        .landing-padding {
+            padding: 2rem 0 0;
+        }
+
+        #sidebar {
+            display: none;
+            height: 0;
+            width: 100%;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            bottom: 0;
+            background-color: #F7F7F7;
+            overflow-x: hidden;
+            -webkit-transition: 0.4s;
+            -moz-transition: 0.4s;
+            -ms-transition: 0.4s;
+            -o-transition: 0.4s;
+            transition: 0.4s;
+        }
+
+        #sidebar-button {
+            display: block;
+        }
+
+        .toast-position {
+            z-index: 1100;
+        }
+
+        #navbarNavAltMarkup {
+            margin-top: 1rem;
+        }
+    }
+
+    .navbar-custom-parent, .navbar-custom-children {
+        width: 100%;
+    }
+
+    @media (min-width: 768px) {
+        #sidebar {
+            display: block;
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .book-padding {
+            padding: 0 2rem 0 2rem;
+        }
+    }
+
+    .jumbo-color {
+        background-color: #ECECEC;
+    }
+
+    .l-block::after {
+        content: none !important;
+    }
+
+    .dropdown-toggle::after {
+        content: none;
+    }
+
+    .navbar-custom-parent > .navbar-nav > a {
+        -webkit-transition: color .1s ease;
+        -moz-transition: color .1s ease;
+        -ms-transition: color .1s ease;
+        -o-transition: color .1s ease;
+        transition: color .1s ease;
+    }
+
+    .navbar-custom-parent > .navbar-nav > a.active-custom {
+    }
+
+    .navbar-custom-parent > .navbar-nav > a:hover {
+    }
+
+    .navbar-custom-children > .navbar-nav > a {
+        -webkit-transition: color .1s ease;
+        -moz-transition: color .1s ease;
+        -ms-transition: color .1s ease;
+        -o-transition: color .1s ease;
+        transition: color .1s ease;
+    }
+
+    .navbar-custom-children > .navbar-nav > a:hover,
+    .navbar-custom-children > .navbar-nav > a.active {
+	font-weight: 700 !important;
+    }
+
+    .font-weight-bold {
+        font-weight: 700 !important;
+    }
+
+    .border-right {
+        border-width: 2px !important;
+    }
+
+    .border-right:hover, .border-right:focus, a.active, .border-active {
+        border-width: 4px !important;
+    }
+
+    .form-width {
+        margin: 0 0 0 auto;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+    .nav-color, .upvote-color, .downvote-color {
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-color:hover, .nav-color:focus {
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+    .upvote-color:hover, .upvote-color:focus {
+        color: #5cb85c;
+    }
+
+    .downvote-color:hover, .downvote-color:focus {
+        color: #d9534f;
+    }
+
+    /* Footnote in text blocks */
+    span.footnote {
+        color: #ca0020;
+    }
+
+    span.footnote span.footnotetext {
+        z-index: -1;
+        opacity: 0;
+        position: fixed;
+        right: 15px;
+        bottom: 20px;
+        margin-left: 18px;
+        margin-right: 18px;
+        padding: 14px 20px;
+        border-radius: 4px;
+        border:1px solid #DCA;
+        color: black;
+        background-color: #FEF6BB;
+        display: none;
+    }
+
+    span.footnote:hover span.footnotetext {
+        z-index: 9;
+        opacity: 1;
+        display: block;
+    }
+
+    .notes, .comments {
+        display: none;
+    }
+
+    #addChapter {
+        text-align: left !important;
+        display: none;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    .toast-position {
+        position: fixed;
+        top: 68px;
+        right: 10px;
+    }
+
+    .modal-backdrop {
+        opacity: 0.7 !important;
+    }
+
+    /* bjorks new stuff */
+    code.prettyprint {
+        background-color: #f8f8f8;
+        border: 1px solid #888;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    pre.prettyprint {
+        background-color: #f8f8f8;
+    }
+
+    .prettyprint.celloutput {
+        background-color: #fff;
+    }
+
+    .i2latextext {}
+
+    .exercise {
+        padding: 10px;
+        border-style: solid;
+        border-color: #ccc;
+    }
+
+    .exercise > .row {
+        display: block;
+    }
+
+    .sci2uanswer, .sci2uquestion, .sci2uquestionbtn, .sci2ureviewborder {
+        border-width: 3px;
+    }
+
+    .sci2udefaultborder {
+        border: 3px solid rgba(0,0,0,.125);
+    }
+
+    .sci2ubadge {
+        font-size: 1.75em;
+        vertical-align: middle
+    }
+    /* if code is a link, make the border blue */
+    a > .prettyprint {
+        border-color: #007bff;
+    }
+    a > code > .pln, .pun {
+        color: #007bff;
+    }
+</style>
+        
+
+        <!-- jQuery -->
+        <script src="/static//book/js/jquery.min.js"></script>
+
+        <!-- Bootstrap JavaScript -->
+        <script src="/static//book/js/bootstrap.bundle.min.js"></script>
+
+        <!-- IE10 viewport bug workaround -->
+        <script src="/static//book/js/ie10-viewport-bug-workaround.js"></script>
+
+        <!-- Notifactions -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    	<!-- Placeholder Images -->
+        <script src="/static//book/js/holder.min.js"></script>
+
+        <!-- Code environment -->
+        <!-- https://github.com/google/code-prettify/blob/master/docs/getting_started.md -->
+	    <!-- autoloads css and runs when page finished loading - i.e. no need for PR.prettyPrint() -->
+        <!-- obsolete: <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+        <!-- KaTeX -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
+
+    	<!-- The loading of KaTeX is deferred to speed up page rendering -->
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
+
+        <script>
+            var refreshRender = function() {
+                var tex = document.querySelectorAll('script[type^="math/tex"]');
+                for (var i = 0; i < tex.length; ++i) {
+                    var display = tex[i].getAttribute('type').indexOf('mode=display') > -1;
+                    var math = tex[i].previousSibling;
+                    //alert(math.className);
+                    //math = math.previousSibling;
+
+                    math.className = 'katex-render';
+                    var content = tex[i].textContent;
+                    katex.render(content, math, {
+                        displayMode: display,
+                        throwOnError: false
+                    });
+                    tex[i].parentNode.removeChild(tex[i]);
+                }
+            };
+
+            var refreshLocal = function(element) {
+	        var element = $(element)
+                var tex = element.find('script[type^="math/tex"]');
+                for (var i = 0; i < tex.length; ++i) {
+                    var display = tex[i].getAttribute('type').indexOf('mode=display') > -1;
+                    var math = tex[i].previousSibling;
+                    //alert(math.className);
+                    //math = math.previousSibling;
+
+                    math.className = 'katex-render';
+                    var content = tex[i].textContent;
+                    katex.render(content, math, {
+                        displayMode: display,
+                        throwOnError: false
+                    });
+                    tex[i].parentNode.removeChild(tex[i]);
+                }
+	      return element;
+            };
+
+            $(document).ready(function() {
+                // koer prettyfy
+                //PR.prettyPrint();
+                // koer KaTeX
+                refreshRender();
+            });
+
+
+        </script>
+        <!-- end KaTeX -->
+
+        <script type="text/javascript">
+            var csrf_token = 'tHlv2sM4CSKVAgJvUd7y6J6eqKdmYiGJWppMinMcOEzBl9cLbu1V8qAPre1RWg6E';
+        </script>
+    <script type="text/javascript">
+        what_options_for_this_block = function(block_id) {
+            $.ajax({
+                url: '/book/block/' + block_id + '/',
+                type: 'POST',
+                data: {
+                    action: 'what_options_for_this_block',
+                    latest_collection_id: localStorage.getItem('latest_collection'),
+                    csrfmiddlewaretoken: csrf_token,
+                },
+                dataType : "json"
+            }).done(function (result) {
+                if (result.ok) {
+                    $("#frameworkModal").modal('hide');
+                    if (result.url) {
+                        window.location.href = result.url;
+                    } else if (result.html) {
+                        if ($.trim($('#booklet_options').html()) == '') {
+                            $('#booklet_options').html(result.html);
+                        }
+                        $("#blockOptionsModal").modal('show');
+			} else {
+			    alert('problem' + result.msg);
+			}
+                };
+            });
+        }
+
+        modal_set_prefer = function() {
+            $('#default_latest_icon').removeClass('fa-circle').addClass('fa-check-circle');
+            set_prefer_latest_collection(true);
+        }
+    </script>
+
+
+        
+<link href="/static/user/css/login.css" rel="stylesheet">
+
+<script>
+var csrf_token = 'tHlv2sM4CSKVAgJvUd7y6J6eqKdmYiGJWppMinMcOEzBl9cLbu1V8qAPre1RWg6E'
+$(document).ready(function(){
+});
+</script>
+
+
+    </head>
+    <body data-spy="scroll" data-target="#sidebar">
+        
+
+    
+
+    <div class="jumbotron jumbo-color mt-5">
+        <div class="container">
+            <h1 class="text-center text-primary">Sign in</h1>
+
+        </div>
+    </div>
+
+    <div class="container mt-n5">
+        <div class="row">
+	    <div class="col-md-2 mb-4">
+	    </div>
+	    <div class="col-md-8 mb-4">
+                <div class="card shadow-sm move-up">
+                    <div class="card-body">
+            <div style="margin-top:40px; text-align:center;">
+		  <span class="signuplink" style="color: red">Invalid username or password</span>
+		  <br>
+		  
+            </div>
+        <form action="/user/login/?next=/book/" method="POST">
+            <input type="hidden" name="csrfmiddlewaretoken" value="tHlv2sM4CSKVAgJvUd7y6J6eqKdmYiGJWppMinMcOEzBl9cLbu1V8qAPre1RWg6E">
+              <label for="username"><h4>Username:</h4></label>
+              <br>
+                    <input type="text" name="username" autofocus required id="id_username">
+              <br>
+              <label for="password"><h4>Password:</h4></label>
+              <br>
+	      <input type="password" name="password" required id="id_password">
+	      <a href="/registration/password_reset/">Forgot password?</a><br>
+              <input type="submit" value="Login">
+              <a href="/" id="cancel" class="cancel">Cancel</a>
+            </form>
+	    
+            <div style="margin-top:40px; text-align:center;">
+              Don't have an account? <a href="/registration/register/" class="signuplink">Sign up</a>
+            </div>
+	    
+
+                    </div>
+                </div>
+            </div>
+	    <div class="col-md-2 mb-4">
+	    </div>
+        </div>
+    </div>
+
+
+
+
+        <!-- Custom JavaScript -->
+        
+            <script>
+    /*
+        Functions to manage the sidebar, its animations and responsiveness
+    */
+    var sidebar = $("#sidebar");
+    var sidebarButtonIcon = $("#sidebar-button i");
+    var body = $("body");
+
+    function toggleSidebar() {
+        if (sidebar.css("display") == "none") {
+            sidebar.show();
+            sidebar.css("height", "calc(100% - 56px)");
+            sidebarButtonIcon.removeClass("fa-plus").addClass("fa-minus");
+            body.css("overflow-y", "hidden");
+        }
+        else if (sidebar.css("display") == "block") {
+            sidebar.hide();
+            sidebar.css("height", "0");
+            sidebarButtonIcon.removeClass("fa-minus").addClass("fa-plus");
+            body.css("overflow-y", "scroll");
+        }
+    }
+
+    $("#sidebar-button").click(function() {
+        toggleSidebar();
+    });
+
+    function fixSideBarOnResize(mediaQ) {
+        if (mediaQ.matches) {
+            if (sidebar.css("display") == "none") {
+                $("#sidebar").show();
+                $("#sidebar").css("height", "calc(100% - 56px)");
+            }
+
+            if (body.css("overflow-y") == "hidden") {
+                body.css("overflow-y", "scroll");
+            }
+        }
+        else {
+            if (sidebar.css("display") == "block" && sidebarButtonIcon.hasClass("fa-plus")) {
+                sidebar.hide();
+                sidebar.css("height", "0");
+            }
+            else if (sidebar.css("display") == "block" && body.css("overflow-y") == "scroll") {
+                body.css("overflow-y", "hidden");
+            }
+        }
+    }
+
+    var mediaQ = window.matchMedia("(min-width: 768px)");
+    fixSideBarOnResize(mediaQ);
+    mediaQ.addListener(fixSideBarOnResize);
+
+    $(".navbar-nav > .navbar-nav > a").click(function() {
+        if (body.css("overflow-y") == "hidden") {
+            toggleSidebar();
+        }
+    });
+
+    // Function to display and start animation for search bar, when clicking on search icon
+    $("#searchButton").click(function() {
+        var el = $("#searchBar");
+
+        if (el.css("display") == "none") {
+            el.show();
+            el.css("width", "100%");
+        }
+        else if (el.css("display") == "block") {
+            el.hide();
+            el.css("width", "0");
+        }
+    });
+</script>
+        
+    </body>
+</html>
